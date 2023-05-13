@@ -1,0 +1,153 @@
+@use "colors.scss" as *;
+@mixin panels {
+	background: linear-gradient(0deg, $veryDarkBlue, 50%, $darkBlue);
+	height: 400px;
+	padding: 30px;
+	border-radius: 20px;
+	width: 400px;
+}
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Overpass", sans-serif;
+	font-size: 15px;
+}
+body {
+	background-color: rgb(15, 14, 14);
+	color: $white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+.rate-panel {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	align-items: flex-start;
+	@include panels();
+	
+
+	.icon {
+		background-color: $darkBlue;
+		width: 45px;
+		height: 45px;
+		border-radius: 50%;
+		text-align: center;
+		margin-bottom: 30px;
+
+		img {
+			padding: 15px 0px;
+		}
+	}
+
+	.heading h1 {
+		font-size: 2rem;
+		font-weight: 400;
+		margin-bottom: 20px;
+	}
+	.rate-text {
+		color: $lightgrey;
+		line-height: 1.5rem;
+		margin-bottom: 30px;
+	}
+	.rate-btn {
+		display: flex;
+		justify-content: space-between;
+		width: 330px;
+        margin-bottom: 30px;
+
+		button {
+			width: 45px;
+			height: 45px;
+			background-color: $darkBlue;
+			border-radius: 50%;
+			border: none;
+			color: $lightgrey;
+			text-align: center;
+		}
+
+        .clicked,button:hover{
+            background-color:$mediumGrey;
+            color:white;
+        }
+        .clickedMax, #five:hover{
+            background-color: $orange;
+        }
+	}
+    .submit{
+        width: 330px;
+        padding: 10px 0px;
+        border-radius: 30px;
+        background-color: $orange;
+        border:none;
+        color:white;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+
+    }
+    .submit:hover{
+        background-color: white;
+        color:$orange;
+    }
+}
+.thx-panel {
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	top: 100;
+	left: 100;
+	@include panels();
+	.selected{
+		width: 200px;
+		text-align: center;
+		margin: 30px 0px;
+		background-color: $darkBlue;
+		padding: 5px 0;
+		border-radius: 30px;
+		color:$orange;	
+	}
+	h2{
+		font-size: 2rem;
+		font-weight: 400;
+		margin-bottom: 15px;
+	}
+	p{
+		text-align: center;
+		color:$lightgrey;
+		line-height: 1.8rem;
+	}
+
+}
+
+.error{
+	font-size: 0.8rem;
+	color:$mediumGrey;
+	text-decoration: underline;
+	margin-bottom: 5px;
+}
+@media only screen and (max-width: 375px){
+	.thx-panel, .rate-panel{
+		width:320px;
+	.rate-btn{
+		width: 270px;
+	}
+	.submit{
+		width: 270px;
+	}
+	.heading h1{
+		font-size: 1.5rem;
+	}
+	.rate-text{
+		font-size: 0.9rem;
+	}
+	h2{
+		font-size: 1.3rem;
+	}
+	p{
+		font-size: 0.9rem;
+	}
+}
+}
